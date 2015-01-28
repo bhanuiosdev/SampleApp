@@ -4,7 +4,7 @@
 #import "AppDelegate.h"
 #import "CaptureManager.h"
 
-@interface AddDataViewController : UIViewController<UIScrollViewDelegate,CaptureManagerDelegate,UIImagePickerControllerDelegate>{
+@interface AddDataViewController : UIViewController<UIScrollViewDelegate,CaptureManagerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>{
 
     IBOutlet UIImageView *imageGalarey;
     AVCaptureVideoPreviewLayer *previewLayer;

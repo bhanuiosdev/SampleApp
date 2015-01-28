@@ -2,6 +2,9 @@
 
 #import "AppDelegate.h"
 #import "AddDataViewController.h"
+#import "LoginViewController.h"
+#import "AppartmentsViewController.h"
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -14,7 +17,18 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     AddDataViewController *add = [[AddDataViewController alloc]initWithNibName:@"AddDataViewController" bundle:nil];
-     [self.window setRootViewController:add];
+     //[self.window setRootViewController:add];
+    
+        LoginViewController *Login = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    
+            AppartmentsViewController *App = [[AppartmentsViewController alloc]initWithNibName:@"AppartmentsViewController" bundle:nil];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] init];
+    
+    [navigationController setViewControllers:@[add,App,Login] animated:NO];
+    
+    [self.window setRootViewController:navigationController];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

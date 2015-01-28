@@ -1,6 +1,8 @@
 
 
 #import "AddDataViewController.h"
+#import "DEMOLeftMenuViewController.h"
+#import "DEMORightMenuViewController.h"
 
 @interface AddDataViewController ()
 
@@ -22,6 +24,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fill Form"
+                                                    message:@"Please Fill Application to Book apartment"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    self.navigationItem.title = @"Apply online";
+    
+
+    
+//    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Show" style:UIBarButtonItemStylePlain target:self action:@selector(BarButtonItem)];
+//    self.navigationItem.rightBarButtonItem = anotherButton;
+
+    
+    //self.navigationItem.rightBarButtonItem = sideMenuViewController;
+}
+
+-(void)BarButtonItem{
+    DEMOLeftMenuViewController *leftMenuViewController = [[DEMOLeftMenuViewController alloc] init];
+    DEMORightMenuViewController *rightMenuViewController = [[DEMORightMenuViewController alloc] init];
+    
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.navigationController
+                                                                    leftMenuViewController:nil
+                                                                   rightMenuViewController:rightMenuViewController];
+    [self.navigationController pushViewController:sideMenuViewController animated:YES];
+    [self.sideMenuViewController presentRightMenuViewController];
+    
 }
 
 - (void)didReceiveMemoryWarning
